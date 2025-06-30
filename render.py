@@ -3,7 +3,6 @@ from flask import Flask, jsonify
 import json
 import requests
 
-app = Flask(__name__)
 
 @app.route("/")
 def index():
@@ -11,16 +10,15 @@ def index():
 
 @app.route("/post_to_instagram")
 def post_to_instagram():
-    # ✅ Use your Render domain for public_url
+    
     public_url = "https://instagramproject-4.onrender.com"
     image_url = f"{public_url}/static/post.jpg"
 
-    caption = "Success is not in Never Falling, but in Rising Every Time We Fall. #Motivation #Inspiration #Success"
-
+    caption = "Success is not in Never Falling, but in Rising very Time We Fall. #Motivation #Inspiration #Success"
     ig_user_id = "YOUR_IG_USER_ID"
     access_token = "YOUR_ACCESS_TOKEN"
 
-    # ✅ 1. Create media
+   
     url = f"https://graph.facebook.com/v23.0/{ig_user_id}/media"
     payload = {
         "image_url": image_url,
@@ -35,7 +33,7 @@ def post_to_instagram():
     print(json.dumps(data, indent=4))
     create_id = data.get("id")
 
-    # ✅ 2. Publish media
+    
     publish_url = f"https://graph.facebook.com/v23.0/{ig_user_id}/media_publish"
     publish_payload = {
         "creation_id": create_id,
