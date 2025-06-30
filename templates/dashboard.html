@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>Dashboard</title></head>
+<body>
+    <h2>Instagram Account Info</h2>
+    <ul>
+        <li><strong>Username:</strong> {{ ig.username }}</li>
+        <li><strong>Followers:</strong> {{ ig.followers_count }}</li>
+        <li><strong>Total Posts:</strong> {{ ig.media_count }}</li>
+    </ul>
+
+    <h3>Make a Post</h3>
+    <form action="/post" method="POST">
+        <label>Image URL:</label><br>
+        <input type="text" name="image_url" required><br><br>
+
+        <label>Caption:</label><br>
+        <textarea name="caption" rows="3" cols="50" required></textarea><br><br>
+
+        <button type="submit">Post to Instagram</button>
+    </form>
+</body>
+</html>
